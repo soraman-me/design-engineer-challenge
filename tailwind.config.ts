@@ -13,7 +13,7 @@ const config: Config = {
       },
       backgroundImage: {
         'gradient-funky': 'linear-gradient(90deg, #FF00A8 0%, #00E0FF 100%)',
-        royal: 'background: linear-gradient(180deg, #6F4CFF 0%, #432E99 100%)',
+        'gradient-royal': 'linear-gradient(180deg, #6F4CFF 0%, #432E99 100%)',
       },
     },
   },
