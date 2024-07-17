@@ -50,7 +50,6 @@ export default function DraggableCarousel({
         className="z-10 flex h-fit w-fit cursor-grab gap-4 pb-32 pt-16 active:cursor-grabbing"
         drag="x"
         dragConstraints={ref}
-        // onMeasureDragConstraints={console.log}
         dragMomentum={true}
       >
         {placeholderImageUrls.map((url, index) => (
@@ -93,7 +92,7 @@ const NFTCard: React.FC<NFTCardProps> = ({
             alt="Card image"
             className="h-full w-full rounded-md object-cover"
           />
-          <div className="bg-steel/90 absolute left-0 top-0 z-10 flex h-full w-full flex-col justify-between p-4 backdrop-blur-md">
+          <div className="absolute left-0 top-0 z-10 flex h-full w-full flex-col justify-between bg-steel/90 p-4 backdrop-blur-md">
             <NFTInformation activeButton={activeButton} />
             <PrimaryButton isMobile={isMobile} title={'Save'} />
           </div>
@@ -121,7 +120,7 @@ const NFTCard: React.FC<NFTCardProps> = ({
               ? 504
               : 200,
       }}
-      className={`bg-steel border-clay flex rounded-md border transition`}
+      className={`flex rounded-md border border-clay bg-steel transition`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -132,7 +131,7 @@ const NFTCard: React.FC<NFTCardProps> = ({
       />
 
       <div
-        className={` ${isHovered ? 'z-10 opacity-100' : '-z-10 opacity-0'} flex h-full flex-col ${activeButton === 'phone' ? 'max-w-[260px]' : 'w-full'} justify-between p-4 duration-100`}
+        className={` ${isHovered ? 'z-10 p-4 opacity-100' : '-z-10 w-0 p-0 opacity-0'} flex h-full flex-col ${activeButton === 'phone' ? 'max-w-[260px]' : 'max-w-full'} justify-between duration-100`}
       >
         <NFTInformation activeButton={activeButton} />
         <div className="flex w-full gap-2">
@@ -147,16 +146,16 @@ const NFTCard: React.FC<NFTCardProps> = ({
 const NFTInformation = ({ activeButton }: NFTInformationProps) => {
   return (
     <div className="flex h-full w-full flex-col gap-2 text-white">
-      <div className="text-lavender text-sm">Wallpapers of Unsplash</div>
+      <div className="text-sm text-lavender">Wallpapers of Unsplash</div>
       <div className="font-medium text-white">
         {placeholderNFTInformation.name}
       </div>
-      <div className="text-lavender text-sm">
+      <div className="text-sm text-lavender">
         {activeButton === 'phone'
           ? placeholderNFTInformation.description
           : null}
       </div>
-      <div className="divide-clay flex flex-col gap-2 divide-y pt-4 text-sm">
+      <div className="flex flex-col gap-2 divide-y divide-clay pt-4 text-sm">
         <div className="flex justify-between">
           <div className="text-lavender">Total Assets:</div>
           <div className="text-white">{placeholderNFTInformation.assets}</div>
